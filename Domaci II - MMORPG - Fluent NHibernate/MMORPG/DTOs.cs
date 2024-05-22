@@ -612,4 +612,19 @@ namespace MMORPG
         }
     }
     #endregion
+    #region Kupovina
+    public class KupovinaPregled
+    {
+        public int Id;
+        public string Naziv;
+        public int Igrac;
+        public KupovinaPregled() { }
+        public KupovinaPregled(int id, string naziv, int igrac)
+        {
+            this.Id = id;
+            this.Naziv = naziv;
+            this.Igrac = igrac;
+        }
+    }
+    #endregion
 }

@@ -120,6 +120,7 @@
     <Compile Include="DTOManager.cs" />
     <Compile Include="DTOs.cs" />
     <Compile Include="Entiteti\Igrac.cs" />
+    <Compile Include="Entiteti\Kupovina.cs" />
     <Compile Include="Entiteti\Lik.cs" />
     <Compile Include="Entiteti\Pomocnik.cs" />
     <Compile Include="Entiteti\Predmet.cs" />
@@ -170,6 +171,12 @@
     <Compile Include="Forme\KreirajProizvod.Designer.cs">
       <DependentUpon>KreirajProizvod.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\KupiProizvod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\KupiProizvod.Designer.cs">
+      <DependentUpon>KupiProizvod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\PrikaziIgraca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +190,7 @@
       <DependentUpon>TimVsTim.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\IgracMapiranja.cs" />
+    <Compile Include="Mapiranja\KupovinaMapiranja.cs" />
     <Compile Include="Mapiranja\LikMapiranja.cs" />
     <Compile Include="Mapiranja\PomocnikMapiranja.cs" />
     <Compile Include="Mapiranja\PredmetMapiranja.cs" />
@@ -219,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\KreirajProizvod.resx">
       <DependentUpon>KreirajProizvod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\KupiProizvod.resx">
+      <DependentUpon>KupiProizvod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\PrikaziIgraca.resx">
       <DependentUpon>PrikaziIgraca.cs</DependentUpon>

@@ -718,5 +718,55 @@ namespace MMORPG
             }
         }
         #endregion
+        #region Kupovina
+        public static List<KupovinaPregled> vratiKupovine()
+        {
+            List<KupovinaPregled> Infos = new List<KupovinaPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+
+                IEnumerable<Kupovina> k = from o in s.Query<Kupovina>()
+                                               select o;
+
+                foreach (Kupovina t in k)
+                {
+                    Infos.Add(new KupovinaPregled(t.Id, t.Naziv, t.Igrac));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+
+            return Infos;
+        }
+        public static void sacuvajKupovinu(KupovinaPregled k)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                MMORPG.Entiteti.Kupovina t = new MMORPG.Entiteti.Kupovina();
+
+                t.Naziv = k.Naziv;
+                t.Igrac = k.Igrac;
+
+
+                s.Save(t);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+        #endregion
     }
 }

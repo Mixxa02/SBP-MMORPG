@@ -70,5 +70,11 @@ namespace MMORPG
             TimVsTim forma = new TimVsTim();
             forma.ShowDialog();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            KupiProizvod forma = new KupiProizvod();
+            forma.ShowDialog();
+        }
     }
 }
