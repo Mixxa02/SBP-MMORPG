@@ -101,5 +101,29 @@ namespace MMORPG.Forme
                 this.Close();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DodajPredmet forma = new DodajPredmet();
+            forma.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DodajTim forma= new DodajTim();
+            forma.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            TimVsTim forma=new TimVsTim();
+            forma.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            StazaSadrziPredmet forma = new StazaSadrziPredmet();
+            forma.ShowDialog();
+        }
     }
 }

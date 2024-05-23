@@ -28,19 +28,12 @@ namespace MMORPG.Mapiranja
 
             References(x => x.Lik).Column("ID_LIKA").LazyLoad();
 
-            //HasMany(x => x.Proizvodi).KeyColumn("ID_IGRACA").Cascade.All().Inverse();
+            References(x => x.Sesija).Column("ID_SESIJE").LazyLoad();
 
             HasManyToMany(x => x.Proizvodi)
                 .Table("KUPOVINA")
                 .ParentKeyColumn("ID_IGRACA")
                 .ChildKeyColumn("NAZIV_PROIZVODA")
-                .Cascade.All()
-                .Inverse();
-
-            HasManyToMany(x => x.Sesije)
-                .Table("IGRAC_IGRA_SESIJU")
-                .ParentKeyColumn("ID_IGRACA")
-                .ChildKeyColumn("ID_SESIJE")
                 .Cascade.All()
                 .Inverse();
         }

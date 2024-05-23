@@ -37,6 +37,7 @@ namespace MMORPG.Forme
             popuniPodacima();
             List<TimPregled> t = DTOManager.vratiTimove();
             List<LikPregled> l = DTOManager.vratiLikove();
+            List<SesijaPregled> l2 = DTOManager.vratiSesije();
             foreach (TimPregled t1 in t)
             {
                 comboTimovi.Items.Add(t1.Naziv);
@@ -44,6 +45,10 @@ namespace MMORPG.Forme
             foreach (LikPregled l1 in l)
             {
                 comboBox1.Items.Add(l1.ID);
+            }
+            foreach (SesijaPregled l1 in l2)
+            {
+                comboBox2.Items.Add(l1.Id);
             }
 
         }
@@ -66,7 +71,7 @@ namespace MMORPG.Forme
             else
                 o.Pol = 'Z';
             //o.Tim = DTOManager.vratiTim(comboTimovi.Text);
-            DTOManager.sacuvajIgraca(o, comboTimovi.Text, Convert.ToInt32(comboBox1.Text));
+            DTOManager.sacuvajIgraca(o, comboTimovi.Text, Convert.ToInt32(comboBox1.Text), Convert.ToInt32(comboBox2.Text));
             MessageBox.Show("Uspesno ste dodali novog igraca!");
             this.Close();
         }
@@ -95,6 +100,18 @@ namespace MMORPG.Forme
             {
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DodajLika forma=new DodajLika();
+            forma.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DodajPomocnika forma = new DodajPomocnika();
+            forma.ShowDialog();
         }
     }
 }

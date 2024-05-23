@@ -59,5 +59,15 @@ namespace MMORPG.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap apps_62046_14561494258435094_d6315fcc_92fc_49c5_ae5f_bcfe4b00d359 {
+            get {
+                object obj = ResourceManager.GetObject("apps.62046.14561494258435094.d6315fcc-92fc-49c5-ae5f-bcfe4b00d359", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

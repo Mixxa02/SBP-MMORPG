@@ -18,11 +18,7 @@ namespace MMORPG.Forme
         {
             InitializeComponent();
             popuniPodacima();
-            List<StazaPregled> t = DTOManager.vratiStaze();
-            foreach (StazaPregled t1 in t)
-            {
-                comboBox1.Items.Add(t1.Naziv);
-            }
+
         }
         public void popuniPodacima()
         {
@@ -30,7 +26,7 @@ namespace MMORPG.Forme
             List<PredmetPregled> pomLista = DTOManager.vratiPredmete();
             foreach (PredmetPregled i in pomLista)
             {
-                ListViewItem item = new ListViewItem(new string[] { i.Naziv, i.Opis,i.Staza });
+                ListViewItem item = new ListViewItem(new string[] { i.Naziv, i.Opis});
                 predmeti.Items.Add(item);
             }
 
@@ -81,7 +77,7 @@ namespace MMORPG.Forme
                 o.Opis = textBox2.Text;
                 textBox5.Text = "0";
                 textBox6.Text = "";
-                DTOManager.sacuvajPredmet(o, comboBox2.Text, textBox4.Text, Convert.ToInt32(textBox5.Text), textBox6.Text, comboBox1.Text);
+                DTOManager.sacuvajPredmet(o, comboBox2.Text, textBox4.Text, Convert.ToInt32(textBox5.Text), textBox6.Text);
                 MessageBox.Show("Uspesno ste dodali novi kljucni predmet!");
                 this.Close();
             }
@@ -91,7 +87,7 @@ namespace MMORPG.Forme
                 o.Naziv = textBox1.Text;
                 o.Opis = textBox2.Text;
                 textBox4.Text = "";
-                DTOManager.sacuvajPredmet(o, comboBox2.Text, textBox4.Text, Convert.ToInt32(textBox5.Text), textBox6.Text, comboBox1.Text);
+                DTOManager.sacuvajPredmet(o, comboBox2.Text, textBox4.Text, Convert.ToInt32(textBox5.Text), textBox6.Text);
                 MessageBox.Show("Uspesno ste dodali novi XP predmet!");
                 this.Close();
             }
@@ -111,6 +107,11 @@ namespace MMORPG.Forme
                 textBox5.Enabled = true;
                 textBox4.Enabled = false;
             }
+        }
+
+        private void DodajPredmet_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

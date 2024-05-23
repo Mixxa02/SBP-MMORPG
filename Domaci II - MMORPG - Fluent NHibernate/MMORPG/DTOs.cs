@@ -108,13 +108,11 @@ namespace MMORPG
     {
         public string Naziv;
         public string Opis;
-        public string Staza { get; set; }
         public PredmetPregled() { }
-        public PredmetPregled(string naziv, string opis, string staza)
+        public PredmetPregled(string naziv, string opis)
         {
             this.Naziv = naziv;
             this.Opis = opis;
-            this.Staza = staza;
         }
     }
     public class KljucniPredmetPregled : PredmetPregled
@@ -144,13 +142,11 @@ namespace MMORPG
     {
         public string Naziv;
         public string Opis;
-        public Staza NazivStaze;
         public PredmetBasic() { }
-        public PredmetBasic(string naziv, string opis, Staza nazivStaze)
+        public PredmetBasic(string naziv, string opis)
         {
             this.Naziv = naziv;
             this.Opis = opis;
-            this.NazivStaze = nazivStaze;
         }
     }
     public class KljucniPredmetBasic : PredmetBasic
@@ -627,4 +623,35 @@ namespace MMORPG
         }
     }
     #endregion
+    #region StazaSadrzPredmetPregled
+    public class StazaSadrzPredmetPregled
+    {
+        public int Id;
+        public string NazivPredmeta;
+        public string NazivStaze;
+        public StazaSadrzPredmetPregled() { }
+        public StazaSadrzPredmetPregled(int id, string nazivpredmet, string nazivstaze)
+        {
+            this.Id = id;
+            this.NazivPredmeta = nazivpredmet;
+            this.NazivStaze = nazivstaze;
+        }
+    }
+    #endregion
+    #region SesijaPregled
+    public class SesijaPregled
+    {
+        public int Id;
+        public DateTime VremePovezivanja;
+        public float VremeUcestvovanja;
+
+        public SesijaPregled() { }
+        public SesijaPregled(int id, DateTime povezivanje, float ucestvovanje)
+        {
+            this.Id = id;
+            this.VremePovezivanja = povezivanje;
+            this.VremeUcestvovanja = ucestvovanje;
+        }
+    }
+    #endregion SesijaPregled
 }

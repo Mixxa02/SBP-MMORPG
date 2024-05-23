@@ -21,12 +21,6 @@ namespace MMORPG.Mapiranja
             Map(x => x.ZaradjeniGold, "ZARADJENO_ZLATO");
             Map(x => x.ZaradjeniXPpoeni, "ZARADJENI_XP");
 
-            HasManyToMany(x => x.Igraci)
-            .Table("IGRAC_IGRA_SESIJU")
-            .ParentKeyColumn("ID_SESIJE")
-            .ChildKeyColumn("ID_IGRACA")
-            .Cascade.All();
-            //.Inverse(); 
         }
     }
 }

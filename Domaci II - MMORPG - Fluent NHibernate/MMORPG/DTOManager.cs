@@ -43,7 +43,7 @@ namespace MMORPG
 
             return odInfos;
         }
-        public static void sacuvajIgraca(IgracBasic igrac, string naziv, int id)
+        public static void sacuvajIgraca(IgracBasic igrac, string naziv, int id, int id2)
         {
             //TimBasic t = new TimBasic();
             try
@@ -54,6 +54,7 @@ namespace MMORPG
 
                 Tim t1 = s.Load<MMORPG.Entiteti.Tim>(naziv);
                 Lik l1 = s.Load<MMORPG.Entiteti.Lik>(id);
+                Sesija s1 = s.Load<MMORPG.Entiteti.Sesija>(id2);
 
                 i.Ime = igrac.Ime;
                 i.Prezime = igrac.Prezime;
@@ -63,6 +64,7 @@ namespace MMORPG
                 i.Lozinka = igrac.Lozinka;
                 i.Tim = t1;
                 i.Lik = l1;
+                i.Sesija = s1;
 
 
                 s.Save(i);
@@ -401,7 +403,7 @@ namespace MMORPG
 
                 foreach (Predmet i in predmeti)
                 {
-                    odInfos.Add(new PredmetPregled(i.Naziv, i.Opis, i.Naziv));
+                    odInfos.Add(new PredmetPregled(i.Naziv, i.Opis));
                 }
 
                 s.Close();
@@ -414,7 +416,7 @@ namespace MMORPG
 
             return odInfos;
         }
-        public static void sacuvajPredmet(PredmetBasic pr, string tipPredmeta, string nadimci, int bonisk, string rase, string staza)
+        public static void sacuvajPredmet(PredmetBasic pr, string tipPredmeta, string nadimci, int bonisk, string rase)
         {
             //TimBasic t = new TimBasic();
             try
@@ -427,8 +429,8 @@ namespace MMORPG
                     ok.Naziv = pr.Naziv;
                     ok.Opis = pr.Opis;
                     ok.NadimciLikova = nadimci;
-                    Entiteti.Staza st = s.Load<Entiteti.Staza>(staza);
-                    ok.Naziv = st.Naziv;
+                    //Entiteti.Staza st = s.Load<Entiteti.Staza>(staza);
+                    //ok.Staze = st.Naziv;
                     s.Save(ok);
 
                     s.Flush();
@@ -442,8 +444,8 @@ namespace MMORPG
                     or.Opis = pr.Opis;
                     or.BonusUIskustvu = bonisk;
                     or.RasePremdet = rase;
-                    Entiteti.Staza st = s.Load<Entiteti.Staza>(staza);
-                    or.Naziv = st.Naziv;
+                    //Entiteti.Staza st = s.Load<Entiteti.Staza>(staza);
+                    //or.Naziv = st.Naziv;
                     s.Save(or);
 
                     s.Flush();
@@ -766,6 +768,83 @@ namespace MMORPG
             {
                 MessageBox.Show(ec.Message);
             }
+        }
+        #endregion
+        #region StazaSadrziPredmet
+        public static List<StazaSadrzPredmetPregled> vratiSadrzaje()
+        {
+            List<StazaSadrzPredmetPregled> Infos = new List<StazaSadrzPredmetPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+
+                IEnumerable<StazaSadrziPredmet> k = from o in s.Query<StazaSadrziPredmet>()
+                                          select o;
+
+                foreach (StazaSadrziPredmet t in k)
+                {
+                    Infos.Add(new StazaSadrzPredmetPregled(t.Id, t.NazivPredmeta, t.NazivStaze));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+
+            return Infos;
+        }
+        public static void sacuvajSadrzaj(StazaSadrzPredmetPregled k)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                MMORPG.Entiteti.StazaSadrziPredmet t = new MMORPG.Entiteti.StazaSadrziPredmet();
+
+                t.NazivPredmeta = k.NazivPredmeta;
+                t.NazivStaze = k.NazivStaze;
+
+
+                s.Save(t);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+        #endregion
+        #region Sesija
+        public static List<SesijaPregled> vratiSesije()
+        {
+            List<SesijaPregled> odInfos = new List<SesijaPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Sesija> sesije = from o in s.Query<Sesija>()
+                                                  select o;
+
+                foreach (Sesija i in sesije)
+                {
+                    odInfos.Add(new SesijaPregled(i.Id, i.VremePovezivanjaNaServer, i.VremeUcestvovanja));
+                }
+
+                s.Close();
+
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+
+            return odInfos;
         }
         #endregion
     }

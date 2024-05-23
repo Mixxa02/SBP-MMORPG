@@ -212,7 +212,7 @@ namespace MMORPG.Forme
                 o.StepenZamora = Convert.ToInt32(textBox3.Text);
                 o.Iskustvo = Convert.ToInt32(textBox4.Text);
                 o.KolicinaZlata = Convert.ToInt32(textBox5.Text);
-                o.MaxTezinaOklopa = Convert.ToInt32(txtOklop);
+                o.MaxTezinaOklopa = Convert.ToInt32(txtOklop.Text);
 
                 if (comboRasa.Text == "COVEK")
                 {

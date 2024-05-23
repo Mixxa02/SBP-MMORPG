@@ -18,12 +18,11 @@ namespace MMORPG.Entiteti
 
         public virtual Tim Tim { get; set; }
         public virtual Lik Lik { get; set; }
-        public virtual IList<Sesija> Sesije { get; set; }
+        public virtual Sesija Sesija { get; set; }
         public virtual IList<Pomocnik> Pomocnici { get; set; }
         public virtual IList<Proizvod> Proizvodi { get; set; }
         public Igrac()
         {
-            Sesije = new List<Sesija>();
             Pomocnici = new List<Pomocnik>();
             Proizvodi = new List<Proizvod>();
         }
