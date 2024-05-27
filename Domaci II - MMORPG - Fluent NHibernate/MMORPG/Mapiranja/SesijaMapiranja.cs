@@ -21,6 +21,8 @@ namespace MMORPG.Mapiranja
             Map(x => x.ZaradjeniGold, "ZARADJENO_ZLATO");
             Map(x => x.ZaradjeniXPpoeni, "ZARADJENI_XP");
 
+            References(x => x.Igrac).Column("ID_IGRACA").LazyLoad();
+
         }
     }
 }

@@ -59,7 +59,7 @@
             this.timovi.Location = new System.Drawing.Point(32, 186);
             this.timovi.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.timovi.Name = "timovi";
-            this.timovi.Size = new System.Drawing.Size(975, 655);
+            this.timovi.Size = new System.Drawing.Size(975, 714);
             this.timovi.TabIndex = 0;
             this.timovi.UseCompatibleStateImageBehavior = false;
             this.timovi.View = System.Windows.Forms.View.Details;

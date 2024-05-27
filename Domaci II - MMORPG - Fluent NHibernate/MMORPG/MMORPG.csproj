@@ -154,6 +154,12 @@
     <Compile Include="Forme\DodajPredmet.Designer.cs">
       <DependentUpon>DodajPredmet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\DodajSesiju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajSesiju.Designer.cs">
+      <DependentUpon>DodajSesiju.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\DodajStazu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,12 @@
     </Compile>
     <Compile Include="Forme\DodajTim.Designer.cs">
       <DependentUpon>DodajTim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\IzmenaIgraca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\IzmenaIgraca.Designer.cs">
+      <DependentUpon>IzmenaIgraca.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\KreirajProizvod.cs">
       <SubType>Form</SubType>
@@ -227,11 +239,17 @@
     <EmbeddedResource Include="Forme\DodajPredmet.resx">
       <DependentUpon>DodajPredmet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodajSesiju.resx">
+      <DependentUpon>DodajSesiju.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodajStazu.resx">
       <DependentUpon>DodajStazu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodajTim.resx">
       <DependentUpon>DodajTim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\IzmenaIgraca.resx">
+      <DependentUpon>IzmenaIgraca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\KreirajProizvod.resx">
       <DependentUpon>KreirajProizvod.cs</DependentUpon>

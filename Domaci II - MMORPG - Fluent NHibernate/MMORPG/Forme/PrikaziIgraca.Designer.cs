@@ -54,10 +54,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uzrastNum)).BeginInit();
             this.SuspendLayout();
@@ -108,7 +108,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1187, 821);
+            this.button1.Location = new System.Drawing.Point(1192, 802);
             this.button1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(272, 86);
@@ -286,10 +286,10 @@
             this.button2.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button2.Location = new System.Drawing.Point(1192, 921);
+            this.button2.Location = new System.Drawing.Point(1038, 921);
             this.button2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(264, 55);
+            this.button2.Size = new System.Drawing.Size(275, 71);
             this.button2.TabIndex = 19;
             this.button2.Text = "Obrisi igraca";
             this.button2.UseVisualStyleBackColor = false;
@@ -313,29 +313,11 @@
             this.label8.TabIndex = 21;
             this.label8.Text = "Lik:";
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1192, 739);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(257, 39);
-            this.comboBox2.TabIndex = 22;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.Control;
-            this.label9.Location = new System.Drawing.Point(1070, 739);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 32);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Sesija:";
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(116, 845);
+            this.button3.Location = new System.Drawing.Point(79, 808);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(230, 80);
+            this.button3.Size = new System.Drawing.Size(197, 80);
             this.button3.TabIndex = 24;
             this.button3.Text = "Dodaj lika";
             this.button3.UseVisualStyleBackColor = true;
@@ -343,13 +325,33 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(456, 845);
+            this.button4.Location = new System.Drawing.Point(305, 808);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(303, 82);
+            this.button4.Size = new System.Drawing.Size(262, 82);
             this.button4.TabIndex = 25;
             this.button4.Text = "Dodaj pomocnika";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(898, 802);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(255, 86);
+            this.button5.TabIndex = 26;
+            this.button5.Text = "Izmeni igraca";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(601, 808);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(194, 82);
+            this.button6.TabIndex = 27;
+            this.button6.Text = "Dodaj sesiju";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // PrikaziIgraca
             // 
@@ -357,11 +359,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1517, 992);
+            this.ClientSize = new System.Drawing.Size(1517, 1022);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
@@ -421,9 +423,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

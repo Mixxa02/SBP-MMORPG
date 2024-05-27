@@ -43,7 +43,59 @@ namespace MMORPG
 
             return odInfos;
         }
-        public static void sacuvajIgraca(IgracBasic igrac, string naziv, int id, int id2)
+        public static IgracBasic vratiIgraca(int id)
+        {
+            IgracBasic pb = new IgracBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                MMORPG.Entiteti.Igrac o = s.Load<MMORPG.Entiteti.Igrac>(id);
+                pb = new IgracBasic(o.Id, o.Ime, o.Prezime, o.Nadimak, o.Lozinka, o.Pol, o.Uzrast);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return pb;
+        }
+        public static IgracBasic azurirajIgraca(IgracBasic p, string naziv, int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                MMORPG.Entiteti.Igrac o = s.Load<MMORPG.Entiteti.Igrac>(p.Id);
+
+                Tim t1 = s.Load<MMORPG.Entiteti.Tim>(naziv);
+                Lik l1 = s.Load<MMORPG.Entiteti.Lik>(id);
+
+                o.Ime = p.Ime;
+                o.Prezime = p.Prezime;
+                o.Lozinka = p.Lozinka;
+                o.Nadimak = p.Nadimak;
+                o.Pol = p.Pol;
+                o.Uzrast = p.Uzrast;
+                o.Tim = t1;
+                o.Lik = l1;
+
+                s.Update(o);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+
+            return p;
+        }
+
+        public static void sacuvajIgraca(IgracBasic igrac, string naziv, int id)
         {
             //TimBasic t = new TimBasic();
             try
@@ -54,7 +106,6 @@ namespace MMORPG
 
                 Tim t1 = s.Load<MMORPG.Entiteti.Tim>(naziv);
                 Lik l1 = s.Load<MMORPG.Entiteti.Lik>(id);
-                Sesija s1 = s.Load<MMORPG.Entiteti.Sesija>(id2);
 
                 i.Ime = igrac.Ime;
                 i.Prezime = igrac.Prezime;
@@ -64,7 +115,6 @@ namespace MMORPG
                 i.Lozinka = igrac.Lozinka;
                 i.Tim = t1;
                 i.Lik = l1;
-                i.Sesija = s1;
 
 
                 s.Save(i);
@@ -833,7 +883,7 @@ namespace MMORPG
 
                 foreach (Sesija i in sesije)
                 {
-                    odInfos.Add(new SesijaPregled(i.Id, i.VremePovezivanjaNaServer, i.VremeUcestvovanja));
+                    odInfos.Add(new SesijaPregled(i.Id, i.VremePovezivanjaNaServer, i.VremeUcestvovanja, i.ZaradjeniGold, i.ZaradjeniXPpoeni));
                 }
 
                 s.Close();
@@ -845,6 +895,34 @@ namespace MMORPG
             }
 
             return odInfos;
+        }
+        public static void sacuvajSesiju(SesijaBasic pom, string idigraca)
+        {
+            //TimBasic t = new TimBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                MMORPG.Entiteti.Sesija p = new MMORPG.Entiteti.Sesija();
+                int ajdi = Convert.ToInt32(idigraca);
+                Igrac igrac = s.Load<MMORPG.Entiteti.Igrac>(ajdi);
+
+                p.VremeUcestvovanja = pom.VremeUcestvovanja;
+                p.VremePovezivanjaNaServer = pom.VremePovezivanja;
+                p.ZaradjeniGold = pom.Gold;
+                p.ZaradjeniXPpoeni = pom.XP;
+                p.Igrac= igrac;
+
+                s.Save(p);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
         }
         #endregion
     }

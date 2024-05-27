@@ -34,13 +34,13 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -109,7 +109,7 @@
             this.likovi.Location = new System.Drawing.Point(32, 29);
             this.likovi.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.likovi.Name = "likovi";
-            this.likovi.Size = new System.Drawing.Size(4436, 417);
+            this.likovi.Size = new System.Drawing.Size(4436, 482);
             this.likovi.TabIndex = 0;
             this.likovi.UseCompatibleStateImageBehavior = false;
             this.likovi.View = System.Windows.Forms.View.Details;
@@ -139,15 +139,15 @@
             this.columnHeader5.Text = "Kolicina zlata";
             this.columnHeader5.Width = 80;
             // 
-            // columnHeader16
-            // 
-            this.columnHeader16.Text = "FCovek";
-            this.columnHeader16.Width = 50;
-            // 
             // columnHeader17
             // 
             this.columnHeader17.Text = "Umesnost skrivanja";
             this.columnHeader17.Width = 100;
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "FCovek";
+            this.columnHeader16.Width = 50;
             // 
             // columnHeader18
             // 
@@ -159,11 +159,6 @@
             this.columnHeader19.Text = "FOrk";
             this.columnHeader19.Width = 50;
             // 
-            // columnHeader20
-            // 
-            this.columnHeader20.Text = "Tip oruzja";
-            this.columnHeader20.Width = 100;
-            // 
             // columnHeader21
             // 
             this.columnHeader21.Text = "FDemon";
@@ -171,9 +166,13 @@
             // 
             // columnHeader22
             // 
-            this.columnHeader22.DisplayIndex = 9;
             this.columnHeader22.Text = "FVilenjak";
             this.columnHeader22.Width = 100;
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Tip oruzja";
+            this.columnHeader20.Width = 100;
             // 
             // columnHeader23
             // 

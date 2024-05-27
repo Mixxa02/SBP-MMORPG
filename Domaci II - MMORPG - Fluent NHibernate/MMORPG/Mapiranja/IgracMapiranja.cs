@@ -28,7 +28,6 @@ namespace MMORPG.Mapiranja
 
             References(x => x.Lik).Column("ID_LIKA").LazyLoad();
 
-            References(x => x.Sesija).Column("ID_SESIJE").LazyLoad();
 
             HasManyToMany(x => x.Proizvodi)
                 .Table("KUPOVINA")

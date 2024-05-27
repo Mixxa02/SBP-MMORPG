@@ -37,8 +37,8 @@ namespace MMORPG
         public string Lozinka;
         public char Pol;
         public int Uzrast;
-        public TimBasic Tim;//basic
-        public Lik Lik;//basic
+        public Tim Tim;
+        public Lik Lik;
         public virtual IList<Sesija> Sesije { get; set; }
         public virtual IList<Pomocnik> Pomocnici { get; set; }
         public virtual IList<Proizvod> Proizvodi { get; set; }
@@ -638,20 +638,47 @@ namespace MMORPG
         }
     }
     #endregion
-    #region SesijaPregled
+    #region Sesija
     public class SesijaPregled
     {
         public int Id;
         public DateTime VremePovezivanja;
         public float VremeUcestvovanja;
+        public int Gold;
+        public int XP;
 
         public SesijaPregled() { }
-        public SesijaPregled(int id, DateTime povezivanje, float ucestvovanje)
+        public SesijaPregled(int id, DateTime povezivanje, float ucestvovanje, int gold, int xP)
         {
             this.Id = id;
             this.VremePovezivanja = povezivanje;
             this.VremeUcestvovanja = ucestvovanje;
+            this.Gold = gold;
+            this.XP = xP;
         }
     }
-    #endregion SesijaPregled
+    public class SesijaBasic
+    {
+        public int Id;
+        public DateTime VremePovezivanja;
+        public float VremeUcestvovanja;
+        public int Gold;
+        public int XP;
+
+        public SesijaBasic()
+        {
+
+        }
+
+        public SesijaBasic(int id, DateTime povezivanje, float ucestvovanje, int gold, int xP)
+        {
+            this.Id = id;
+            this.VremePovezivanja = povezivanje;
+            this.VremeUcestvovanja = ucestvovanje;
+            this.Gold = gold;
+            this.XP = xP;
+        }
+
+    }
+    #endregion Sesija
 }

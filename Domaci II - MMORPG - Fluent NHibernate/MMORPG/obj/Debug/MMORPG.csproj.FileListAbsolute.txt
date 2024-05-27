@@ -104,3 +104,5 @@ C:\Users\Mihajlo\Documents\FAX\3. godina\Sistemi Baza\SBP-MMORPG\Domaci II - MMO
 C:\Users\Mihajlo\Documents\FAX\3. godina\Sistemi Baza\SBP-MMORPG\Domaci II - MMORPG - Fluent NHibernate\MMORPG\obj\Debug\MMORPG.exe
 C:\Users\Mihajlo\Documents\FAX\3. godina\Sistemi Baza\SBP-MMORPG\Domaci II - MMORPG - Fluent NHibernate\MMORPG\obj\Debug\MMORPG.pdb
 C:\Users\Mihajlo\Documents\FAX\3. godina\Sistemi Baza\SBP-MMORPG\Domaci II - MMORPG - Fluent NHibernate\MMORPG\obj\Debug\MMORPG.Forme.StazaSadrziPredmet.resources
+C:\Users\Mihajlo\Documents\FAX\3. godina\Sistemi Baza\SBP-MMORPG\Domaci II - MMORPG - Fluent NHibernate\MMORPG\obj\Debug\MMORPG.Forme.IzmenaIgraca.resources
+C:\Users\Mihajlo\Documents\FAX\3. godina\Sistemi Baza\SBP-MMORPG\Domaci II - MMORPG - Fluent NHibernate\MMORPG\obj\Debug\MMORPG.Forme.DodajSesiju.resources
