@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using MMORGP_Web_API;
+using Microsoft.AspNetCore.Routing;
 
 namespace MMORGP_Web_API.Controllers
 {
@@ -10,13 +11,15 @@ namespace MMORGP_Web_API.Controllers
     [Route("[controller]")]
     public class IgracController : ControllerBase
     {
-        [HttpGet(Name="GetIgraci")]
+        [HttpGet]
+        [Route("GetIgraci")]
         public IEnumerable<IgracPregled> Get()
         {
             return DTOManager.vratiIgrace().ToArray();
         }
-
-        [HttpDelete(Name ="DeleteIgrac")]
+      
+        [HttpDelete]
+        [Route("DeleteIgrac")]
         public ActionResult Delete(int id)
         {
             try
@@ -30,7 +33,8 @@ namespace MMORGP_Web_API.Controllers
             }
         }
 
-        [HttpPost(Name ="AddIgrac")]
+        [HttpPost]
+        [Route("AddIgrac")]
         public ActionResult Post(IgracBasic igrac, string naziv, int id)
         {
             try
@@ -44,7 +48,8 @@ namespace MMORGP_Web_API.Controllers
             }
         }
 
-        [HttpPut(Name = "UpdateIgrac")]
+        [HttpPut]
+        [Route("UpdateIgrac")]
         public ActionResult Put(IgracBasic igrac, string naziv, int id)
         {
             try

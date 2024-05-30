@@ -1,5 +1,5 @@
 is_global = true
-build_property.RootNamespace = MMORPG_API
+build_property.RootNamespace = MMORGP_Web_API
 build_property.ProjectDir = C:\Users\Mihajlo\Documents\FAX\3. godina\Sistemi Baza\SBP-MMORPG\MMORGP-Web-API\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
