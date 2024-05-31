@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MMORGP-Web-API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b63d45b98a282720643be1957ca31ef2758366b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71911a9bc4e69a3b9e95f268d6a896342b9a7159")]
 [assembly: System.Reflection.AssemblyProductAttribute("MMORGP-Web-API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MMORGP-Web-API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

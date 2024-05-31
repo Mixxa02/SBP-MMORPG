@@ -9,6 +9,7 @@ using NHibernate.Util;
 using MMORGP_Web_API;
 using System.Collections;
 using MMORGP_Web_API.Entiteti;
+using FluentNHibernate.Utils;
 
 namespace MMORGP_Web_API
 {

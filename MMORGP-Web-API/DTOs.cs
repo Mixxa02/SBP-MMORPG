@@ -10,11 +10,11 @@ namespace MMORGP_Web_API
     #region Igrac
     public class IgracPregled
     {
-        public string ID;
-        public string Ime;
-        public string Prezime;
-        public string Nadimak;
-        public int Uzrast;
+        public string ID { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string Nadimak { get; set; }
+        public int Uzrast {  get; set; }
         public IgracPregled() { }
         public IgracPregled(string id, string ime, string prezime,
             string nadimak, int uzrast)
@@ -29,15 +29,15 @@ namespace MMORGP_Web_API
 
     public class IgracBasic
     {
-        public int Id;
-        public string Ime;
-        public string Prezime;
-        public string Nadimak;
-        public string Lozinka;
-        public char Pol;
-        public int Uzrast;
-        public Tim Tim;
-        public Lik Lik;
+        public int Id { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string Nadimak { get; set; }
+        public string Lozinka { get; set; }
+        public char Pol {  get; set; }
+        public int Uzrast { get; set; }
+        public Tim Tim { get; set; }
+        public Lik Lik { get; set; }
         public virtual IList<Sesija> Sesije { get; set; }
         public virtual IList<Pomocnik> Pomocnici { get; set; }
         public virtual IList<Proizvod> Proizvodi { get; set; }
@@ -64,11 +64,11 @@ namespace MMORGP_Web_API
     #region Tim
     public class TimPregled
     {
-        public string Naziv;
-        public int Plasman;
-        public int BonusPoeni;
-        public int Max;
-        public int Min;
+        public string Naziv {  get; set; }
+        public int Plasman { get; set; }
+        public int BonusPoeni { get; set; }
+        public int Max {  get; set; }
+        public int Min { get; set; }
         public TimPregled() { }
         public TimPregled(string naziv, int plasman, int bonusPoeni, int max, int min)
         {
@@ -81,11 +81,11 @@ namespace MMORGP_Web_API
     }
     public class TimBasic
     {
-        public string Naziv;
-        public int Plasman;
-        public int BonusPoeni;
-        public int Max;
-        public int Min;
+        public string Naziv { get; set; }
+        public int Plasman { get; set; }
+        public int BonusPoeni { get; set; }
+        public int Max { get; set; }
+        public int Min { get; set; }
         public virtual IList<Igrac> Igraci { get; set; }
         public StazaZaTim StazaZaTim;
         public TimBasic()
@@ -105,8 +105,8 @@ namespace MMORGP_Web_API
     #region Predmet
     public class PredmetPregled
     {
-        public string Naziv;
-        public string Opis;
+        public string Naziv { get; set; }
+        public string Opis { get; set; }
         public PredmetPregled() { }
         public PredmetPregled(string naziv, string opis)
         {
@@ -116,7 +116,7 @@ namespace MMORGP_Web_API
     }
     public class KljucniPredmetPregled : PredmetPregled
     {
-        public string NadimciLikova;
+        public string NadimciLikova { get; set; }
         public KljucniPredmetPregled() { }
         public KljucniPredmetPregled(string nadimciLikova)
         {
@@ -126,8 +126,8 @@ namespace MMORGP_Web_API
 
     public class PredmetXPPregled : PredmetPregled
     {
-        public int BonusUIskustvu;
-        public string RasePredmet;
+        public int BonusUIskustvu { get; set; }
+        public string RasePredmet { get; set; }
 
         public PredmetXPPregled() { }
         public PredmetXPPregled(int bonusUIskustvu, string rasePredmet)
@@ -139,8 +139,8 @@ namespace MMORGP_Web_API
 
     public class PredmetBasic
     {
-        public string Naziv;
-        public string Opis;
+        public string Naziv {  get; set; }
+        public string Opis { get; set; }
         public PredmetBasic() { }
         public PredmetBasic(string naziv, string opis)
         {
@@ -150,7 +150,7 @@ namespace MMORGP_Web_API
     }
     public class KljucniPredmetBasic : PredmetBasic
     {
-        public string NadimciLikova;
+        public string NadimciLikova { get; set; }
         public KljucniPredmetBasic() { }
         public KljucniPredmetBasic(string nadimciLikova)
         {
@@ -159,8 +159,8 @@ namespace MMORGP_Web_API
     }
     public class PredmetXPBasic : PredmetBasic
     {
-        public int BonusUIskustvu;
-        public string RasePredmet;
+        public int BonusUIskustvu { get; set; }
+        public string RasePredmet { get; set; }
         public PredmetXPBasic() { }
         public PredmetXPBasic(int bonusUIskustvu, string rasePredmet)
         {
@@ -172,11 +172,11 @@ namespace MMORGP_Web_API
     #region Pomocnik
     public class PomocnikPregled
     {
-        public int Id;
-        public string Ime;
-        public string Rasa;
-        public string Klasa;
-        public int BonusUZastiti;
+        public int Id { get; set; }
+        public string Ime { get; set; }
+        public string Rasa { get; set; }
+        public string Klasa { get; set; }
+        public int BonusUZastiti { get; set; }
 
         public PomocnikPregled()
         { }
@@ -192,12 +192,12 @@ namespace MMORGP_Web_API
 
     public class PomocnikBasic
     {
-        public int Id;
-        public string Ime;
-        public string Rasa;
-        public string Klasa;
-        public int BonusUZastiti;
-        public Igrac Igrac;
+        public int Id { get; set; }
+        public string Ime { get; set; }
+        public string Rasa { get; set; }
+        public string Klasa { get; set; }
+        public int BonusUZastiti { get; set; }
+        public Igrac Igrac { get; set; }
 
         public PomocnikBasic()
         {
@@ -218,10 +218,10 @@ namespace MMORGP_Web_API
     #region Proizvod
     public class ProizvodPregled
     {
-        public string Naziv;
-        public string Opis;
-        public string Klase;
-        public string Rase;
+        public string Naziv { get; set; }
+        public string Opis { get; set; }
+        public string Klase {  get; set; }
+        public string Rase { get; set; }
 
         public ProizvodPregled() { }
         public ProizvodPregled(string naziv, string opis, string klase, string rase)
@@ -234,7 +234,7 @@ namespace MMORGP_Web_API
     }
     public class OklopPregled : ProizvodPregled
     {
-        public int PoeniZaOdbranu;
+        public int PoeniZaOdbranu { get; set; }
         public OklopPregled() { }
         public OklopPregled(int poeniZaOdbranu)
         {
@@ -243,7 +243,7 @@ namespace MMORGP_Web_API
     }
     public class OruzjePregled : ProizvodPregled
     {
-        public int PoeniZaNapad;
+        public int PoeniZaNapad {  get; set; }
         public OruzjePregled() { }
         public OruzjePregled(int poeniZaNapad)
         {
@@ -252,11 +252,11 @@ namespace MMORGP_Web_API
     }
     public class ProizvodBasic
     {
-        public string Naziv;
-        public string Tip;
-        public string Opis;
-        public string Klase;
-        public string Rase;
+        public string Naziv {  get; set; }
+        public string Tip {  get; set; }
+        public string Opis {  get; set; }
+        public string Klase {  get; set; }
+        public string Rase { get; set; }
         public virtual IList<Igrac> Igraci { get; set; }
         public ProizvodBasic()
         {
@@ -274,7 +274,7 @@ namespace MMORGP_Web_API
     }
     public class OklopBasic : ProizvodBasic
     {
-        public int PoeniZaOdbranu;
+        public int PoeniZaOdbranu { get; set; }
         public OklopBasic() { }
         public OklopBasic(int poeniZaOdbranu)
         {
@@ -283,7 +283,7 @@ namespace MMORGP_Web_API
     }
     public class OruzjeBasic : ProizvodBasic
     {
-        public int PoeniZaNapad;
+        public int PoeniZaNapad {  get; set; }
         public OruzjeBasic() { }
         public OruzjeBasic(int poeniZaNapad)
         {
@@ -294,10 +294,10 @@ namespace MMORGP_Web_API
     #region Staza
     public class StazaPregled
     {
-        public string Naziv;
-        public int BonusPoeni;
-        public string Potrebne_Rase;
-        public string Potreble_Klase;
+        public string Naziv {  get; set; }
+        public int BonusPoeni {  get; set; }
+        public string Potrebne_Rase { get; set; }   
+        public string Potreble_Klase { get; set; }
 
         public StazaPregled() { }
         public StazaPregled(string naziv, int bonusPoeni, string potrebne_Rase, string potreble_Klase)
@@ -310,8 +310,8 @@ namespace MMORGP_Web_API
     }
     public class StazaZaIgracaPregled : StazaPregled
     {
-        public int BrIgranjaStaze;
-        public int BrUbijenihNeprijatelja;
+        public int BrIgranjaStaze { get; set; }
+        public int BrUbijenihNeprijatelja { get; set; }
         public StazaZaIgracaPregled() { }
         public StazaZaIgracaPregled(int brIgranjaStaze, int brUbijenihNeprijatelja)
         {
@@ -325,7 +325,7 @@ namespace MMORGP_Web_API
     }
     public class StazaZaTimPregled : StazaPregled
     {
-        public Tim Tim;
+        public Tim Tim { get; set; }
         public StazaZaTimPregled() { }
 
         public StazaZaTimPregled(string naziv, int bonusPoeni, string potrebne_Rase, string potreble_Klase) : base(naziv, bonusPoeni, potrebne_Rase, potreble_Klase)
@@ -334,11 +334,11 @@ namespace MMORGP_Web_API
     }
     public class StazaBasic
     {
-        public string Naziv;
-        public int BonusPoeni;
-        public string Potrebne_Rase;
-        public string Potrebne_Klase;
-        public string Tip;
+        public string Naziv { get; set; }
+        public int BonusPoeni { get; set; }
+        public string Potrebne_Rase { get; set; }
+        public string Potrebne_Klase { get; set; }
+        public string Tip {  get; set; }
         public virtual IList<Predmet> Predmeti { get; set; }
 
         public StazaBasic()
@@ -356,9 +356,9 @@ namespace MMORGP_Web_API
     }
     public class StazaZaIgracaBasic : StazaBasic
     {
-        public int BrIgranjaStaze;
-        public int BrUbijenihNeprijatelja;
-        public Igrac Igrac;
+        public int BrIgranjaStaze { get; set; }
+        public int BrUbijenihNeprijatelja {  get; set; }
+        public Igrac Igrac {  get; set; }
         public StazaZaIgracaBasic() { }
         public StazaZaIgracaBasic(int brIgranjaStaze, int brUbijenihNeprijatelja, Igrac igrac)
         {
@@ -369,7 +369,7 @@ namespace MMORGP_Web_API
     }
     public class StazaZaTimBasic : StazaBasic
     {
-        public Tim Tim;
+        public Tim Tim { get; set; }
         public StazaZaTimBasic() { }
         public StazaZaTimBasic(Tim tim)
         {
@@ -590,11 +590,11 @@ namespace MMORGP_Web_API
     #region TimVsTim
     public class TimVsTimPregled
     {
-        public string Pobednik;
-        public string Bonus;
-        public string Tim1;
-        public string Tim2;
-        public DateTime Vreme;
+        public string Pobednik {  get; set; }
+        public string Bonus {  get; set; }
+        public string Tim1 {  get; set; }
+        public string Tim2 {  get; set; }
+        public DateTime Vreme {  get; set; }
         public TimVsTimPregled() { }
         public TimVsTimPregled(string pobednik, string bonus,
             string tim1, string tim2, DateTime vreme)
@@ -610,9 +610,9 @@ namespace MMORGP_Web_API
     #region Kupovina
     public class KupovinaPregled
     {
-        public int Id;
-        public string Naziv;
-        public int Igrac;
+        public int Id {  get; set; }
+        public string Naziv {  get; set; }
+        public int Igrac {  get; set; }
         public KupovinaPregled() { }
         public KupovinaPregled(int id, string naziv, int igrac)
         {
@@ -625,9 +625,9 @@ namespace MMORGP_Web_API
     #region StazaSadrzPredmetPregled
     public class StazaSadrzPredmetPregled
     {
-        public int Id;
-        public string NazivPredmeta;
-        public string NazivStaze;
+        public int Id { get; set; }
+        public string NazivPredmeta { get; set; }
+        public string NazivStaze {  get; set; }
         public StazaSadrzPredmetPregled() { }
         public StazaSadrzPredmetPregled(int id, string nazivpredmet, string nazivstaze)
         {
@@ -640,11 +640,11 @@ namespace MMORGP_Web_API
     #region Sesija
     public class SesijaPregled
     {
-        public int Id;
-        public DateTime VremePovezivanja;
-        public float VremeUcestvovanja;
-        public int Gold;
-        public int XP;
+        public int Id {  get; set; }
+        public DateTime VremePovezivanja { get; set; }
+        public float VremeUcestvovanja { get; set; }
+        public int Gold {  get; set; }
+        public int XP { get; set; }
 
         public SesijaPregled() { }
         public SesijaPregled(int id, DateTime povezivanje, float ucestvovanje, int gold, int xP)
@@ -658,11 +658,11 @@ namespace MMORGP_Web_API
     }
     public class SesijaBasic
     {
-        public int Id;
-        public DateTime VremePovezivanja;
-        public float VremeUcestvovanja;
-        public int Gold;
-        public int XP;
+        public int Id { get; set; }
+        public DateTime VremePovezivanja { get; set; }
+        public float VremeUcestvovanja { get; set; }
+        public int Gold { get; set; }
+        public int XP { get; set; }
 
         public SesijaBasic()
         {

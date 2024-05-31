@@ -4,6 +4,8 @@ using System.Linq;
 using System;
 using MMORGP_Web_API;
 using Microsoft.AspNetCore.Routing;
+using System.Net.Mime;
+using MMORGP_Web_API.Entiteti;
 
 namespace MMORGP_Web_API.Controllers
 {
@@ -17,7 +19,7 @@ namespace MMORGP_Web_API.Controllers
         {
             return DTOManager.vratiIgrace().ToArray();
         }
-      
+
         [HttpDelete]
         [Route("DeleteIgrac")]
         public ActionResult Delete(int id)
