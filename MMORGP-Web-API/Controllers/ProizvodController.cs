@@ -17,19 +17,19 @@ namespace MMORGP_Web_API.Controllers
             return DTOManager.vratiProizvode().ToArray();
         }
 
-        //[HttpDelete(Name = "DeleteProizvod")]
-        //public ActionResult Delete(string naziv)
-        //{
-        //    try
-        //    {
-        //        DTOManager.obrisiProizvod(naziv);
-        //        return Ok();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpDelete(Name = "DeleteProizvod")]
+        public ActionResult Delete(string naziv)
+        {
+            try
+            {
+                DTOManager.obrisiProizvod(naziv);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
 
         [HttpPost(Name = "AddProizvod")]
@@ -45,26 +45,26 @@ namespace MMORGP_Web_API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        //[HttpPut(Name = "UpdateProizvod")]
-        //public async Task<ActionResult> Put(ProizvodBasic proizvod, string naziv)
-        //{
-        //    try
-        //    {
-        //        if (proizvod.Tip == "OKLOP")
-        //        {
-        //            DTOManager.izmeniOklop((MMORPG_API.OklopBasic)proizvod, naziv);
-        //            return Ok();
-        //        }
-        //        else
-        //        {
-        //            DTOManager.izmeniOruzje((MMORPG_API.OruzjeBasic)proizvod, naziv);
-        //            return Ok();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpPut(Name = "UpdateProizvod")]
+        public async Task<ActionResult> Put(ProizvodBasic proizvod, string naziv)
+        {
+            try
+            {
+                if (proizvod.Tip == "OKLOP")
+                {
+                    DTOManager.izmeniOklop((MMORGP_Web_API.OklopBasic)proizvod, naziv);
+                    return Ok();
+                }
+                else
+                {
+                    DTOManager.izmeniOruzje((MMORGP_Web_API.OruzjeBasic)proizvod, naziv);
+                    return Ok();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

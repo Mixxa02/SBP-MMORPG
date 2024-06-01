@@ -18,19 +18,19 @@ namespace MMORGP_Web_API.Controllers
             return DTOManager.vratiPredmete().ToArray();
         }
 
-        //[HttpDelete(Name = "DeletePredmet")]
-        //public ActionResult Delete(string naziv)
-        //{
-        //    try
-        //    {
-        //        DTOManager.obrisiPredmet(naziv);
-        //        return Ok();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpDelete(Name = "DeletePredmet")]
+        public ActionResult Delete(string naziv)
+        {
+            try
+            {
+                DTOManager.obrisiPredmet(naziv);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [HttpPost(Name = "AddPredmet")]
         public ActionResult Post(PredmetBasic pr, string tipPredmeta, string nadimci, int bonisk, string rase, string staza)
@@ -45,26 +45,26 @@ namespace MMORGP_Web_API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        //[HttpPut(Name = "UpdatePredmet")]
-        //public async Task<ActionResult> Put(PredmetBasic predmet, string naziv)
-        //{
-        //    try
-        //    {
-        //        if (predmet.Tip == "KLJUCNI")
-        //        {
-        //            DTOManager.izmeniKljucniPredmet((MMORPG_API.KljucniPredmetBasic)predmet, naziv);
-        //            return Ok();
-        //        }
-        //        else
-        //        {
-        //            DTOManager.izmeniPredmetXP((MMORPG_API.PredmetXPBasic)predmet, naziv);
-        //            return Ok();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
-    }
+        [HttpPut(Name = "UpdatePredmet")]
+        public async Task<ActionResult> Put(PredmetBasic predmet, string naziv)
+        {
+            try
+            {
+                if (predmet.Tip == "KLJUCNI")
+                {
+                    DTOManager.izmeniKljucniPredmet((MMORGP_Web_API.KljucniPredmetBasic)predmet);
+                    return Ok();
+                }
+                else
+                {
+                    DTOManager.izmeniPredmetXP((MMORGP_Web_API.PredmetXPBasic)predmet);
+                    return Ok();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            }
+        }
 }

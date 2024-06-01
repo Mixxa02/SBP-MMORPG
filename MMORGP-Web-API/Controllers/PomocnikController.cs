@@ -16,19 +16,19 @@ namespace MMORGP_Web_API.Controllers
             return DTOManager.vratiPomocnike().ToArray();
         }
 
-        //[HttpDelete(Name = "DeletePomocnik")]
-        //public ActionResult Delete(int id)
-        //{
-        //    try
-        //    {
-        //        DTOManager.obrisiPomocnika(id);
-        //        return Ok();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpDelete(Name = "DeletePomocnik")]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                DTOManager.obrisiPomocnika(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [HttpPost(Name = "AddPomocnik")]
         public ActionResult Post(PomocnikBasic pom, string idigraca)
@@ -44,18 +44,18 @@ namespace MMORGP_Web_API.Controllers
             }
         }
 
-        //[HttpPut(Name = "UpdatePomocnik")]
-        //public ActionResult Put(PomocnikBasic pomocnik, int id)
-        //{
-        //    try
-        //    {
-        //        DTOManager.izmeniPomocnika(pomocnik, id);
-        //        return Ok();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpPut(Name = "UpdatePomocnik")]
+        public ActionResult Put(PomocnikBasic pomocnik, int id)
+        {
+            try
+            {
+                DTOManager.izmeniPomocnika(pomocnik, id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

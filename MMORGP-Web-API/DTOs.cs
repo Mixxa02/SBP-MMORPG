@@ -141,6 +141,7 @@ namespace MMORGP_Web_API
     {
         public string Naziv {  get; set; }
         public string Opis { get; set; }
+        public string Tip { get; set; }
         public PredmetBasic() { }
         public PredmetBasic(string naziv, string opis)
         {
@@ -380,20 +381,20 @@ namespace MMORGP_Web_API
     #region Lik
     public class LikPregled
     {
-        public int ID;
-        public int KolicinaZlata;
-        public int Iskustvo;
-        public int StepenZamora;
-        public int NivoZdravstvenogStanja;
-        public string Klasa;
-        public char FCovek;
-        public char FPatuljak;
-        public char FOrk;
-        public char FDemon;
-        public char FVilenjak;
-        public string UmesnostSkrivanja;
-        public string TipOruzja;
-        public string EnergijaZaMagiju;
+        public int ID { get; set; }
+        public int KolicinaZlata { get; set; }
+        public int Iskustvo {  get; set; }
+        public int StepenZamora { get; set; }
+        public int NivoZdravstvenogStanja { get; set; }
+        public string Klasa {  get; set; }
+        public char FCovek {  get; set; }
+        public char FPatuljak { get; set; }
+        public char FOrk { get; set; }
+        public char FDemon { get; set; }
+        public char FVilenjak { get; set; }
+        public string UmesnostSkrivanja { get; set; }
+        public string TipOruzja { get; set; }
+        public string EnergijaZaMagiju { get; set; }
 
         public LikPregled() { }
         public LikPregled(int zlato, int xp, int zamor, int hp,
@@ -419,8 +420,8 @@ namespace MMORGP_Web_API
     }
     public class LopovPregled : LikPregled
     {
-        public int MaxNivoZamki;
-        public int NivoBuke;
+        public int MaxNivoZamki { get; set; }
+        public int NivoBuke { get; set; }
         public LopovPregled() { }
         public LopovPregled(int maxNivoZamki, int nivoBuke)
         {
@@ -430,9 +431,9 @@ namespace MMORGP_Web_API
     }
     public class SvestenikPregled : LikPregled
     {
-        public string TipBlagoslova;
-        public string TipReligije;
-        public char MogucnostLecenja;
+        public string TipBlagoslova { get; set; }
+        public string TipReligije { get; set; }
+        public char MogucnostLecenja { get; set; }
 
         public SvestenikPregled() { }
         public SvestenikPregled(string tipBlagoslova, string tipReligije, char mogucnostLecenja)
@@ -444,7 +445,7 @@ namespace MMORGP_Web_API
     }
     public class StrelacPregled : LikPregled
     {
-        public char LukIliSamostrel;
+        public char LukIliSamostrel {  get; set; }
         public StrelacPregled() { }
         public StrelacPregled(char lukIliSamostrel)
         {
@@ -453,7 +454,7 @@ namespace MMORGP_Web_API
     }
     public class OklopnikPregled : LikPregled
     {
-        public int MaxTezinaOklopa;
+        public int MaxTezinaOklopa {  get; set; }
         public OklopnikPregled() { }
         public OklopnikPregled(int maxTezinaOklopa)
         {
@@ -462,8 +463,8 @@ namespace MMORGP_Web_API
     }
     public class BoracPregled : LikPregled
     {
-        public char OruzjeUObeRuke;
-        public char KoristiStit;
+        public char OruzjeUObeRuke { get; set; }
+        public char KoristiStit {  get; set; }
         public BoracPregled() { }
         public BoracPregled(char oruzjeUObeRuke, char koristiStit)
         {
@@ -473,7 +474,7 @@ namespace MMORGP_Web_API
     }
     public class CarobnjakPregled : LikPregled
     {
-        public string SpisakMagija;
+        public string SpisakMagija { get; set; }
         public CarobnjakPregled() { }
         public CarobnjakPregled(string spisakMagija)
         {
@@ -482,22 +483,22 @@ namespace MMORGP_Web_API
     }
     public class LikBasic
     {
-        public int Id;
-        public int KolicinaZlata;
-        public int Iskustvo;
-        public int StepenZamora;
-        public int NivoZdravstvenogStanja;
-        public IgracBasic Igrac;
-        public string Klasa;
+        public int Id { get; set; }
+        public int KolicinaZlata { get; set; }
+        public int Iskustvo {  get; set; }
+        public int StepenZamora { get; set; }
+        public int NivoZdravstvenogStanja {  get; set; }
+        public IgracBasic Igrac {  get; set; }
+        public string Klasa {  get; set; }
 
-        public char FCovek;
-        public char FPatuljak;
-        public char FOrk;
-        public char FDemon;
-        public char FVilenjak;
-        public string UmesnostSkrivanja;
-        public string TipOruzja;
-        public int EnergijaZaMagiju;
+        public char FCovek {  get; set; }
+        public char FPatuljak { get; set; }
+        public char FOrk { get; set; }
+        public char FDemon { get; set; }
+        public char FVilenjak { get; set; }
+        public string UmesnostSkrivanja { get; set; }
+        public string TipOruzja { get; set; }
+        public int EnergijaZaMagiju { get; set; }
         public virtual IList<Igrac> Igraci { get; set; }
         public LikBasic()
         {
@@ -525,8 +526,8 @@ namespace MMORGP_Web_API
     }
     public class LopovBasic : LikBasic
     {
-        public int MaxNivoZamki;
-        public int NivoBuke;
+        public int MaxNivoZamki {  get; set; }
+        public int NivoBuke { get; set; }
         public LopovBasic() { }
         public LopovBasic(int maxNivoZamki, int nivoBuke)
         {
@@ -536,9 +537,9 @@ namespace MMORGP_Web_API
     }
     public class SvestenikBasic : LikBasic
     {
-        public string TipBlagoslova;
-        public string TipReligije;
-        public char MogucnostLecenja;
+        public string TipBlagoslova { get; set; }
+        public string TipReligije { get; set; }
+        public char MogucnostLecenja { get; set; }
 
         public SvestenikBasic() { }
         public SvestenikBasic(string tipBlagoslova, string tipReligije, char mogucnostLecenja)
@@ -550,7 +551,7 @@ namespace MMORGP_Web_API
     }
     public class StrelacBasic : LikBasic
     {
-        public char LukIliSamostrel;
+        public char LukIliSamostrel {  get; set; }
         public StrelacBasic() { }
         public StrelacBasic(char lukIliSamostrel)
         {
@@ -559,7 +560,7 @@ namespace MMORGP_Web_API
     }
     public class OklopnikBasic : LikBasic
     {
-        public int MaxTezinaOklopa;
+        public int MaxTezinaOklopa {  get; set; }
         public OklopnikBasic() { }
         public OklopnikBasic(int maxTezinaOklopa)
         {
@@ -568,8 +569,8 @@ namespace MMORGP_Web_API
     }
     public class BoracBasic : LikBasic
     {
-        public char OruzjeUObeRuke;
-        public char KoristiStit;
+        public char OruzjeUObeRuke { get; set; }
+        public char KoristiStit {  get; set; }
         public BoracBasic() { }
         public BoracBasic(char oruzjeUObeRuke, char koristiStit)
         {
@@ -579,7 +580,7 @@ namespace MMORGP_Web_API
     }
     public class CarobnjakBasic : LikBasic
     {
-        public string SpisakMagija;
+        public string SpisakMagija { get; set; }
         public CarobnjakBasic() { }
         public CarobnjakBasic(string spisakMagija)
         {

@@ -213,6 +213,40 @@ namespace MMORGP_Web_API
                 
             }
         }
+        public static void obrisiTim(string naziv)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Tim tim = s.Load<Tim>(naziv);
+                s.Delete(tim);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            { }
+
+        }
+        public static TimBasic izmeniTim(TimBasic tim)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Tim i = s.Load<Tim>(tim.Naziv);
+                i.Naziv= tim.Naziv;
+                i.Plasman = tim.Plasman;
+                i.BonusPoeni = tim.BonusPoeni;
+                i.Max = tim.Max;
+                i.Min = tim.Min;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return tim;
+        }
         #endregion
         #region Pomocnik
         public static List<PomocnikPregled> vratiPomocnike()
@@ -272,6 +306,42 @@ namespace MMORGP_Web_API
             {
                 
             }
+        }
+        public static void obrisiPomocnika(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Pomocnik p = s.Load<Pomocnik>(id);
+                s.Delete(p);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        public static PomocnikBasic izmeniPomocnika(PomocnikBasic pomocnik, int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                MMORGP_Web_API.Entiteti.Pomocnik i = s.Load<MMORGP_Web_API.Entiteti.Pomocnik>(pomocnik.Id);
+                int ajdi = Convert.ToInt32(id);
+                Igrac igrac = s.Load<MMORGP_Web_API.Entiteti.Igrac>(ajdi);
+                i.Ime = pomocnik.Ime;
+                i.Rasa = pomocnik.Rasa;
+                i.Klasa = pomocnik.Klasa;
+                i.BonusUZastiti = pomocnik.BonusUZastiti;
+                i.Igrac = igrac;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return pomocnik;
         }
         #endregion
         #region Proizvod
@@ -351,6 +421,55 @@ namespace MMORGP_Web_API
             {
                 
             }
+        }
+        public static void obrisiProizvod(string naziv)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Proizvod p = s.Load<Proizvod>(naziv);
+                s.Delete(p);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            { }
+
+        }
+
+        public static OklopBasic izmeniOklop(OklopBasic oklop, string naziv)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Oklop i = s.Load<Oklop>(naziv);
+                i.Opis = oklop.Opis;
+                i.Rase = oklop.Rase;
+                i.Klase = oklop.Klase;
+                i.PoeniZaOdbranu = oklop.PoeniZaOdbranu;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec) { }
+            return oklop;
+        }
+        public static OruzjeBasic izmeniOruzje(OruzjeBasic oruzje, string naziv)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Oruzje i = s.Load<Oruzje>(naziv);
+                i.Opis = oruzje.Opis;
+                i.Rase = oruzje.Rase;
+                i.Klase = oruzje.Klase;
+                i.PoeniZaNapad = oruzje.PoeniZaNapad;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec) { }
+            return oruzje;
         }
         #endregion
         #region Staza
@@ -435,6 +554,60 @@ namespace MMORGP_Web_API
                 
             }
         }
+        public static void obrisiStazu(string naziv)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Staza staza = s.Load<Staza>(naziv);
+                s.Delete(staza);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            { }
+
+        }
+
+        public static StazaZaIgracaBasic izmeniStazuZaIgraca(StazaZaIgracaBasic staza)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                StazaZaIgraca i = s.Load<StazaZaIgraca>(staza.Naziv);
+                i.BonusPoeni = staza.BonusPoeni;
+                i.Potrebne_Klase = staza.Potrebne_Klase;
+                i.Potrebne_Rase = staza.Potrebne_Rase;
+                i.BrIgranjaStaze = staza.BrIgranjaStaze;
+                i.BrUbijenihNeprijatelja = staza.BrUbijenihNeprijatelja;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return staza;
+        }
+        public static StazaZaTimBasic izmeniStazuZaTim(StazaZaTimBasic staza)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                StazaZaTim i = s.Load<StazaZaTim>(staza.Naziv);
+                i.BonusPoeni = staza.BonusPoeni;
+                i.Potrebne_Klase = staza.Potrebne_Klase;
+                i.Potrebne_Rase = staza.Potrebne_Rase;
+                i.Tim = staza.Tim;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return staza;
+        }
         #endregion
         #region Predmet
         public static List<PredmetPregled> vratiPredmete()
@@ -512,6 +685,57 @@ namespace MMORGP_Web_API
             {
                 
             }
+        }
+        public static void obrisiPredmet(string naziv)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Predmet p = s.Load<Predmet>(naziv);
+                s.Delete(p);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            { }
+
+        }
+
+        public static KljucniPredmetBasic izmeniKljucniPredmet(KljucniPredmetBasic predmet)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                KljucniPredmet i = s.Load<KljucniPredmet>(predmet.Naziv);
+                i.Opis = predmet.Opis;
+                i.NadimciLikova = predmet.NadimciLikova;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return predmet;
+        }
+
+        public static PredmetXPBasic izmeniPredmetXP(PredmetXPBasic predmet)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                PredmetXP i = s.Load<PredmetXP>(predmet.Naziv);
+                i.Opis = predmet.Opis;
+                i.BonusUIskustvu = predmet.BonusUIskustvu;
+                i.RasePremdet = predmet.RasePredmet;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return predmet;
         }
         #endregion
         #region Lik
@@ -717,6 +941,199 @@ namespace MMORGP_Web_API
                 
             }
         }
+        public static void obrisiLika(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Lik l = s.Load<Lik>(id);
+                s.Delete(l);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            { }
+
+        }
+
+        public static LopovBasic izmeniLopova(LopovBasic lik)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Lopov i = s.Load<Lopov>(lik.Id);
+                i.KolicinaZlata = lik.KolicinaZlata;
+                i.Iskustvo = lik.Iskustvo;
+                i.StepenZamora = lik.StepenZamora;
+                i.NivoZdravstvenogStanja = lik.NivoZdravstvenogStanja;
+                i.FCovek = lik.FCovek;
+                i.FPatuljak = lik.FPatuljak;
+                i.FOrk = lik.FOrk;
+                i.FDemon = lik.FDemon;
+                i.FVilenjak = lik.FVilenjak;
+                i.UmesnostSkrivanja = lik.UmesnostSkrivanja;
+                i.TipOruzja = lik.TipOruzja;
+                i.EnergijaZaMagiju = lik.EnergijaZaMagiju;
+                i.MaxNivoZamki = lik.MaxNivoZamki;
+                i.NivoBuke = lik.NivoBuke;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return lik;
+        }
+
+        public static SvestenikBasic izmeniSvestenika(SvestenikBasic lik)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Svestenik i = s.Load<Svestenik>(lik.Id);
+                i.KolicinaZlata = lik.KolicinaZlata;
+                i.Iskustvo = lik.Iskustvo;
+                i.StepenZamora = lik.StepenZamora;
+                i.NivoZdravstvenogStanja = lik.NivoZdravstvenogStanja;
+                i.FCovek = lik.FCovek;
+                i.FPatuljak = lik.FPatuljak;
+                i.FOrk = lik.FOrk;
+                i.FDemon = lik.FDemon;
+                i.FVilenjak = lik.FVilenjak;
+                i.UmesnostSkrivanja = lik.UmesnostSkrivanja;
+                i.TipOruzja = lik.TipOruzja;
+                i.EnergijaZaMagiju = lik.EnergijaZaMagiju;
+                i.TipBlagoslova = lik.TipBlagoslova;
+                i.TipReligije = lik.TipReligije;
+                i.MogucnostLecenja = lik.MogucnostLecenja;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return lik;
+        }
+
+        public static StrelacBasic izmeniStrelca(StrelacBasic lik)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Strelac i = s.Load<Strelac>(lik.Id);
+                i.KolicinaZlata = lik.KolicinaZlata;
+                i.Iskustvo = lik.Iskustvo;
+                i.StepenZamora = lik.StepenZamora;
+                i.NivoZdravstvenogStanja = lik.NivoZdravstvenogStanja;
+                i.FCovek = lik.FCovek;
+                i.FPatuljak = lik.FPatuljak;
+                i.FOrk = lik.FOrk;
+                i.FDemon = lik.FDemon;
+                i.FVilenjak = lik.FVilenjak;
+                i.UmesnostSkrivanja = lik.UmesnostSkrivanja;
+                i.TipOruzja = lik.TipOruzja;
+                i.EnergijaZaMagiju = lik.EnergijaZaMagiju;
+                i.LukIliSamostrel = lik.LukIliSamostrel;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return lik;
+        }
+
+        public static OklopnikBasic izmeniOklopnika(OklopnikBasic lik)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Oklopnik i = s.Load<Oklopnik>(lik.Id);
+                i.KolicinaZlata = lik.KolicinaZlata;
+                i.Iskustvo = lik.Iskustvo;
+                i.StepenZamora = lik.StepenZamora;
+                i.NivoZdravstvenogStanja = lik.NivoZdravstvenogStanja;
+                i.FCovek = lik.FCovek;
+                i.FPatuljak = lik.FPatuljak;
+                i.FOrk = lik.FOrk;
+                i.FDemon = lik.FDemon;
+                i.FVilenjak = lik.FVilenjak;
+                i.UmesnostSkrivanja = lik.UmesnostSkrivanja;
+                i.TipOruzja = lik.TipOruzja;
+                i.EnergijaZaMagiju = lik.EnergijaZaMagiju;
+                i.MaxTezinaOklopa = lik.MaxTezinaOklopa;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return lik;
+        }
+
+        public static BoracBasic izmeniBorca(BoracBasic lik)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Borac i = s.Load<Borac>(lik.Id);
+                i.KolicinaZlata = lik.KolicinaZlata;
+                i.Iskustvo = lik.Iskustvo;
+                i.StepenZamora = lik.StepenZamora;
+                i.NivoZdravstvenogStanja = lik.NivoZdravstvenogStanja;
+                i.FCovek = lik.FCovek;
+                i.FPatuljak = lik.FPatuljak;
+                i.FOrk = lik.FOrk;
+                i.FDemon = lik.FDemon;
+                i.FVilenjak = lik.FVilenjak;
+                i.UmesnostSkrivanja = lik.UmesnostSkrivanja;
+                i.TipOruzja = lik.TipOruzja;
+                i.EnergijaZaMagiju = lik.EnergijaZaMagiju;
+                i.OruzjeUObeRuke = lik.OruzjeUObeRuke;
+                i.KoristiStit = lik.KoristiStit;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return lik;
+        }
+
+        public static CarobnjakBasic izmeniCarobnjaka(CarobnjakBasic lik)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Carobnjak i = s.Load<Carobnjak>(lik.Id);
+                i.KolicinaZlata = lik.KolicinaZlata;
+                i.Iskustvo = lik.Iskustvo;
+                i.StepenZamora = lik.StepenZamora;
+                i.NivoZdravstvenogStanja = lik.NivoZdravstvenogStanja;
+                i.FCovek = lik.FCovek;
+                i.FPatuljak = lik.FPatuljak;
+                i.FOrk = lik.FOrk;
+                i.FDemon = lik.FDemon;
+                i.FVilenjak = lik.FVilenjak;
+                i.UmesnostSkrivanja = lik.UmesnostSkrivanja;
+                i.TipOruzja = lik.TipOruzja;
+                i.EnergijaZaMagiju = lik.EnergijaZaMagiju;
+                i.SpisakMagija = lik.SpisakMagija;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return lik;
+        }
+
         #endregion
         #region TimVsTim
         public static List<TimVsTimPregled> vratiBorbe()

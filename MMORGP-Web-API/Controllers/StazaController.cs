@@ -18,19 +18,19 @@ namespace MMORGP_Web_API.Controllers
             return DTOManager.vratiStaze().ToArray();
         }
 
-        //[HttpDelete(Name = "DeleteStaza")]
-        //public ActionResult Delete(string naziv)
-        //{
-        //    try
-        //    {
-        //        DTOManager.obrisiStazu(naziv);
-        //        return Ok();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpDelete(Name = "DeleteStaza")]
+        public ActionResult Delete(string naziv)
+        {
+            try
+            {
+                DTOManager.obrisiStazu(naziv);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [HttpPost(Name = "AddStaza")]
         public ActionResult Post(StazaBasic staza, string tipStaze, int brigr, int brUb, int igrId, string tim)
@@ -45,26 +45,26 @@ namespace MMORGP_Web_API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        //[HttpPut(Name = "UpdateStaza")]
-        //public async Task<ActionResult> Put(StazaBasic staza, string naziv)
-        //{
-        //    try
-        //    {
-        //        if (staza.Tip == "IGRAC")
-        //        {
-        //            DTOManager.izmeniStazuZaIgraca((MMORPG_API.StazaZaIgracaBasic)staza, naziv);
-        //            return Ok();
-        //        }
-        //        else
-        //        {
-        //            DTOManager.izmeniStazuZaTim((MMORPG_API.StazaZaTimBasic)staza, naziv);
-        //            return Ok();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpPut(Name = "UpdateStaza")]
+        public async Task<ActionResult> Put(StazaBasic staza, string naziv)
+        {
+            try
+            {
+                if (staza.Tip == "IGRAC")
+                {
+                    DTOManager.izmeniStazuZaIgraca((MMORGP_Web_API.StazaZaIgracaBasic)staza);
+                    return Ok();
+                }
+                else
+                {
+                    DTOManager.izmeniStazuZaTim((MMORGP_Web_API.StazaZaTimBasic)staza);
+                    return Ok();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

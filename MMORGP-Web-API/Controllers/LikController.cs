@@ -18,19 +18,19 @@ namespace MMORGP_Web_API.Controllers
             return DTOManager.vratiLikove().ToArray();
         }
 
-        //[HttpDelete(Name = "DeleteLik")]
-        //public ActionResult Delete(int id)
-        //{
-        //    try
-        //    {
-        //        DTOManager.obrisiLika(id);
-        //        return Ok();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpDelete(Name = "DeleteLik")]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                DTOManager.obrisiLika(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [HttpPost(Name = "AddLik")]
         public ActionResult Post(LikBasic lik, string klasaLika, string rasaLika, int igracID, int zamke, int buka, string religija,
@@ -46,50 +46,50 @@ namespace MMORGP_Web_API.Controllers
                 return BadRequest(ex.ToString());
             }
         }
-        //[HttpPut(Name = "UpdateLik")]
-        //public async Task<ActionResult> Put(LikBasic lik, int id)
-        //{
-        //    try
-        //    {
-        //        if (lik.Klasa == "LOPOV")
-        //        {
-        //            DTOManager.izmeniLopova((MMORPG_API.LopovBasic)lik, id);
-        //            return Ok();
-        //        }
-        //        else if (lik.Klasa == "SVESTENIK")
-        //        {
-        //            DTOManager.izmeniSvestenika((MMORPG_API.SvestenikBasic)lik, id);
-        //            return Ok();
-        //        }
-        //        else if (lik.Klasa == "STRELAC")
-        //        {
-        //            DTOManager.izmeniStrelca((MMORPG_API.StrelacBasic)lik, id);
-        //            return Ok();
-        //        }
-        //        else if (lik.Klasa == "OKLOPNIK")
-        //        {
-        //            DTOManager.izmeniOklopnika((MMORPG_API.OklopnikBasic)lik, id);
-        //            return Ok();
-        //        }
-        //        else if (lik.Klasa == "BORAC")
-        //        {
-        //            DTOManager.izmeniBorca((MMORPG_API.BoracBasic)lik, id);
-        //            return Ok();
-        //        }
-        //        else if (lik.Klasa == "CAROBNJAK")
-        //        {
-        //            DTOManager.izmeniCarobnjaka((MMORPG_API.CarobnjakBasic)lik, id);
-        //            return Ok();
-        //        }
-        //        else
-        //        {
-        //            return BadRequest();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpPut(Name = "UpdateLik")]
+        public async Task<ActionResult> Put(LikBasic lik, int id)
+        {
+            try
+            {
+                if (lik.Klasa == "LOPOV")
+                {
+                    DTOManager.izmeniLopova((MMORGP_Web_API.LopovBasic)lik);
+                    return Ok();
+                }
+                else if (lik.Klasa == "SVESTENIK")
+                {
+                    DTOManager.izmeniSvestenika((MMORGP_Web_API.SvestenikBasic)lik);
+                    return Ok();
+                }
+                else if (lik.Klasa == "STRELAC")
+                {
+                    DTOManager.izmeniStrelca((MMORGP_Web_API.StrelacBasic)lik);
+                    return Ok();
+                }
+                else if (lik.Klasa == "OKLOPNIK")
+                {
+                    DTOManager.izmeniOklopnika((MMORGP_Web_API.OklopnikBasic)lik);
+                    return Ok();
+                }
+                else if (lik.Klasa == "BORAC")
+                {
+                    DTOManager.izmeniBorca((MMORGP_Web_API.BoracBasic)lik);
+                    return Ok();
+                }
+                else if (lik.Klasa == "CAROBNJAK")
+                {
+                    DTOManager.izmeniCarobnjaka((MMORGP_Web_API.CarobnjakBasic)lik);
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
