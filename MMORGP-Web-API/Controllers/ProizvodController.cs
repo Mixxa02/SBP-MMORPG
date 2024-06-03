@@ -45,21 +45,28 @@ namespace MMORGP_Web_API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPut(Name = "UpdateProizvod")]
-        public async Task<ActionResult> Put(ProizvodBasic proizvod, string naziv)
+        [HttpPut]
+        [Route("UpdateProizvodOklop")]
+        public async Task<ActionResult> Put(OklopBasic proizvod)
         {
             try
             {
-                if (proizvod.Tip == "OKLOP")
-                {
-                    DTOManager.izmeniOklop((MMORGP_Web_API.OklopBasic)proizvod, naziv);
-                    return Ok();
-                }
-                else
-                {
-                    DTOManager.izmeniOruzje((MMORGP_Web_API.OruzjeBasic)proizvod, naziv);
-                    return Ok();
-                }
+                DTOManager.izmeniOklop(proizvod);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("UpdateProizvodOruzje")]
+        public async Task<ActionResult> Put(OruzjeBasic proizvod)
+        {
+            try
+            {
+                DTOManager.izmeniOruzje(proizvod);
+                return Ok();
             }
             catch (Exception ex)
             {

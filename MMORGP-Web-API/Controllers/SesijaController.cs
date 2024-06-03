@@ -19,5 +19,18 @@ namespace MMORGP_Web_API.Controllers
         {
             return DTOManager.vratiSesije().ToArray();
         }
+        [HttpPost(Name = "AddSesija")]
+        public ActionResult Post(SesijaBasic k, string id)
+        {
+            try
+            {
+                DTOManager.sacuvajSesiju(k, id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

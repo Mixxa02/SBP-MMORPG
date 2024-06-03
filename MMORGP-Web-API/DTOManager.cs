@@ -437,12 +437,12 @@ namespace MMORGP_Web_API
 
         }
 
-        public static OklopBasic izmeniOklop(OklopBasic oklop, string naziv)
+        public static OklopBasic izmeniOklop(OklopBasic oklop)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
-                Oklop i = s.Load<Oklop>(naziv);
+                Oklop i = s.Load<Oklop>(oklop.Naziv);
                 i.Opis = oklop.Opis;
                 i.Rase = oklop.Rase;
                 i.Klase = oklop.Klase;
@@ -454,12 +454,12 @@ namespace MMORGP_Web_API
             catch (Exception ec) { }
             return oklop;
         }
-        public static OruzjeBasic izmeniOruzje(OruzjeBasic oruzje, string naziv)
+        public static OruzjeBasic izmeniOruzje(OruzjeBasic oruzje)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
-                Oruzje i = s.Load<Oruzje>(naziv);
+                Oruzje i = s.Load<Oruzje>(oruzje.Naziv);
                 i.Opis = oruzje.Opis;
                 i.Rase = oruzje.Rase;
                 i.Klase = oruzje.Klase;

@@ -46,45 +46,84 @@ namespace MMORGP_Web_API.Controllers
                 return BadRequest(ex.ToString());
             }
         }
-        [HttpPut(Name = "UpdateLik")]
-        public async Task<ActionResult> Put(LikBasic lik, int id)
+        [HttpPut]
+        [Route("UpdateLikLopov")]
+        public async Task<ActionResult> Put(LopovBasic lik)
         {
             try
             {
-                if (lik.Klasa == "LOPOV")
-                {
-                    DTOManager.izmeniLopova((MMORGP_Web_API.LopovBasic)lik);
-                    return Ok();
-                }
-                else if (lik.Klasa == "SVESTENIK")
-                {
-                    DTOManager.izmeniSvestenika((MMORGP_Web_API.SvestenikBasic)lik);
-                    return Ok();
-                }
-                else if (lik.Klasa == "STRELAC")
-                {
-                    DTOManager.izmeniStrelca((MMORGP_Web_API.StrelacBasic)lik);
-                    return Ok();
-                }
-                else if (lik.Klasa == "OKLOPNIK")
-                {
-                    DTOManager.izmeniOklopnika((MMORGP_Web_API.OklopnikBasic)lik);
-                    return Ok();
-                }
-                else if (lik.Klasa == "BORAC")
-                {
-                    DTOManager.izmeniBorca((MMORGP_Web_API.BoracBasic)lik);
-                    return Ok();
-                }
-                else if (lik.Klasa == "CAROBNJAK")
-                {
-                    DTOManager.izmeniCarobnjaka((MMORGP_Web_API.CarobnjakBasic)lik);
-                    return Ok();
-                }
-                else
-                {
-                    return BadRequest();
-                }
+                DTOManager.izmeniLopova(lik);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("UpdateLikSvestenik")]
+        public async Task<ActionResult> Put(SvestenikBasic lik)
+        {
+            try
+            {
+                DTOManager.izmeniSvestenika(lik);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("UpdateLikStrelac")]
+        public async Task<ActionResult> Put(StrelacBasic lik)
+        {
+            try
+            {
+                DTOManager.izmeniStrelca(lik);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("UpdateLikCarobnjak")]
+        public async Task<ActionResult> Put(CarobnjakBasic lik)
+        {
+            try
+            {
+                DTOManager.izmeniCarobnjaka(lik);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("UpdateLikBorac")]
+        public async Task<ActionResult> Put(BoracBasic lik)
+        {
+            try
+            {
+                DTOManager.izmeniBorca(lik);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("UpdateLikOklopnik")]
+        public async Task<ActionResult> Put(OklopnikBasic lik)
+        {
+            try
+            {
+                DTOManager.izmeniOklopnika(lik);
+                return Ok();
             }
             catch (Exception ex)
             {

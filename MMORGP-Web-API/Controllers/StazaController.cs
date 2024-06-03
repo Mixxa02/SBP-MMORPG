@@ -45,21 +45,28 @@ namespace MMORGP_Web_API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPut(Name = "UpdateStaza")]
-        public async Task<ActionResult> Put(StazaBasic staza, string naziv)
+        [HttpPut]
+        [Route("UpdateStazaIgrac")]
+        public async Task<ActionResult> Put(StazaZaIgracaBasic staza)
         {
             try
             {
-                if (staza.Tip == "IGRAC")
-                {
-                    DTOManager.izmeniStazuZaIgraca((MMORGP_Web_API.StazaZaIgracaBasic)staza);
-                    return Ok();
-                }
-                else
-                {
-                    DTOManager.izmeniStazuZaTim((MMORGP_Web_API.StazaZaTimBasic)staza);
-                    return Ok();
-                }
+                DTOManager.izmeniStazuZaIgraca(staza);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("UpdateStazaTim")]
+        public async Task<ActionResult> Put(StazaZaTimBasic staza)
+        {
+            try
+            {
+                DTOManager.izmeniStazuZaTim(staza);
+                return Ok();
             }
             catch (Exception ex)
             {

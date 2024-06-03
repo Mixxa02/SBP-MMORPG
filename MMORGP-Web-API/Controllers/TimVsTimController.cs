@@ -19,6 +19,18 @@ namespace MMORGP_Web_API.Controllers
         {
             return DTOManager.vratiBorbe().ToArray();
         }
-
+        [HttpPost(Name = "AddBorba")]
+        public ActionResult Post(TimVsTimPregled k)
+        {
+            try
+            {
+                DTOManager.sacuvajBorbu(k);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

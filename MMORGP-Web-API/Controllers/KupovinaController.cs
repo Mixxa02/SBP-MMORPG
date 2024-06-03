@@ -19,6 +19,18 @@ namespace MMORGP_Web_API.Controllers
         {
             return DTOManager.vratiKupovine().ToArray();
         }
-
+        [HttpPost(Name = "AddKupovina")]
+        public ActionResult Post(KupovinaPregled k)
+        {
+            try
+            {
+                DTOManager.sacuvajKupovinu(k);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
