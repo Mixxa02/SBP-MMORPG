@@ -19,6 +19,19 @@ namespace MMORGP_Web_API.Controllers
         {
             return DTOManager.vratiBorbe().ToArray();
         }
+        [HttpDelete(Name = "DeleteBorba")]
+        public ActionResult Delete(string id)
+        {
+            try
+            {
+                DTOManager.obrisiBorbu(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [HttpPost(Name = "AddBorba")]
         public ActionResult Post(TimVsTimPregled k)
         {

@@ -1187,6 +1187,20 @@ namespace MMORGP_Web_API
                 
             }
         }
+        public static void obrisiBorbu(string id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                TimVsTim se = s.Load<TimVsTim>(id);
+                s.Delete(se);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            { }
+
+        }
         #endregion
         #region Kupovina
         public static List<KupovinaPregled> vratiKupovine()
@@ -1237,6 +1251,20 @@ namespace MMORGP_Web_API
                 
             }
         }
+        public static void obrisiKupovinu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Kupovina se = s.Load<Kupovina>(id);
+                s.Delete(se);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            { }
+
+        }
         #endregion
         #region StazaSadrziPredmet
         public static List<StazaSadrzPredmetPregled> vratiSadrzaje()
@@ -1286,6 +1314,20 @@ namespace MMORGP_Web_API
             {
                 
             }
+        }
+        public static void obrisiSadrzaj(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                StazaSadrziPredmet se = s.Load<StazaSadrziPredmet>(id);
+                s.Delete(se);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            { }
+
         }
         #endregion
         #region Sesija
@@ -1341,6 +1383,42 @@ namespace MMORGP_Web_API
             {
                 
             }
+        }
+        public static void obrisiSesiju(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Sesija se = s.Load<Sesija>(id);
+                s.Delete(se);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            { }
+
+        }
+        public static SesijaBasic izmeniSesiju(SesijaBasic sesija, int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Sesija i = s.Load<Sesija>(sesija.Id);
+                int ajdi = Convert.ToInt32(id);
+                Igrac igrac = s.Load<MMORGP_Web_API.Entiteti.Igrac>(ajdi);
+                i.VremePovezivanjaNaServer = sesija.VremePovezivanja;
+                i.VremeUcestvovanja = sesija.VremeUcestvovanja;
+                i.ZaradjeniGold = sesija.Gold;
+                i.ZaradjeniXPpoeni = sesija.XP;
+                i.Igrac= igrac;
+                s.SaveOrUpdate(i);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+            }
+            return sesija;
         }
         #endregion
     }

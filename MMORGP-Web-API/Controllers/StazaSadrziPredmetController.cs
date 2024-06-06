@@ -19,6 +19,19 @@ namespace MMORGP_Web_API.Controllers
         {
             return DTOManager.vratiSadrzaje().ToArray();
         }
+        [HttpDelete(Name = "DeleteSadrzaj")]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                DTOManager.obrisiSadrzaj(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [HttpPost(Name = "AddSadrzaj")]
         public ActionResult Post(StazaSadrzPredmetPregled k)
         {

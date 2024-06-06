@@ -19,6 +19,19 @@ namespace MMORGP_Web_API.Controllers
         {
             return DTOManager.vratiKupovine().ToArray();
         }
+        [HttpDelete(Name = "DeleteKupovina")]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                DTOManager.obrisiKupovinu(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [HttpPost(Name = "AddKupovina")]
         public ActionResult Post(KupovinaPregled k)
         {

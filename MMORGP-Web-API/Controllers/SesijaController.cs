@@ -19,12 +19,39 @@ namespace MMORGP_Web_API.Controllers
         {
             return DTOManager.vratiSesije().ToArray();
         }
+
+        [HttpDelete(Name = "DeleteSesija")]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                DTOManager.obrisiSesiju(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [HttpPost(Name = "AddSesija")]
         public ActionResult Post(SesijaBasic k, string id)
         {
             try
             {
                 DTOManager.sacuvajSesiju(k, id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut(Name = "UpdateSesija")]
+        public ActionResult Put(SesijaBasic sesija, int id)
+        {
+            try
+            {
+                DTOManager.izmeniSesiju(sesija, id);
                 return Ok();
             }
             catch (Exception ex)
